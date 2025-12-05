@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Category } from '../types';
 
@@ -13,6 +12,13 @@ interface NavigationProps {
 export const Navigation: React.FC<NavigationProps> = ({ activeCategory, onSelectCategory, logoUrl, categories, onOpenCart }) => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [expandedCategory, setExpandedCategory] = useState<string | null>(null);
+  const [isReady, setIsReady] = useState(false);
+
+  // Prevent transition on initial mount to fix "slide up on refresh" glitch
+  useEffect(() => {
+    const timer = setTimeout(() => setIsReady(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
 
   // Prevent scrolling when menu is open
   useEffect(() => {
@@ -66,9 +72,10 @@ export const Navigation: React.FC<NavigationProps> = ({ activeCategory, onSelect
 
             {/* Center: Logo */}
             <div className="absolute left-1/2 transform -translate-x-1/2 cursor-pointer z-10 bg-transparent group" onClick={() => onSelectCategory(null)}>
-                  <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
+                  {/* <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
                     kitsch<span className="font-sans font-light">&</span>co<span className="text-neonPink">.</span>studio
-                  </h1>
+                  </h1> */}
+                  <img src="Kitsch-no-bg.png" alt="Logo" className="w-80" />
                   <div className="absolute -bottom-1 left-0 w-full h-3 bg-neonGreen/50 -skew-x-12 hidden group-hover:block transition-all duration-300"></div>
             </div>
 
@@ -105,7 +112,9 @@ export const Navigation: React.FC<NavigationProps> = ({ activeCategory, onSelect
 
       {/* Full Screen Menu Overlay */}
       <div 
-        className={`fixed inset-0 bg-cardboard z-[100] transition-transform duration-500 ease-in-out flex flex-col ${
+        className={`fixed inset-0 bg-cardboard z-[100] flex flex-col ${
+          isReady ? 'transition-transform duration-500 ease-in-out' : ''
+        } ${
           menuOpen ? 'translate-y-0' : '-translate-y-full'
         }`}
       >

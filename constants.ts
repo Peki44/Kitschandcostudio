@@ -39,7 +39,7 @@ export const INITIAL_PRODUCTS: Product[] = [
     category: 'kozmetika',
     subcategory: 'Sapuni (9 vrsta)',
     price: '12.00 €',
-    image: 'https://picsum.photos/id/102/800/800',
+    image: 'kitschandcostudio_1.jpg',
     description: 'Sapun s magarećim mlijekom za lice i tijelo.',
     variants: ['Classic', 'Lavanda', 'Ruža & Glina']
   },
