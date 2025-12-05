@@ -171,7 +171,7 @@ const App: React.FC = () => {
                 </div>
                 
                 <img 
-                  src="kitschandcostudio_1.jpg" 
+                  src="/kitschandcostudio_1.jpg" 
                   alt="Kitsch Studio Hero" 
                   className="aspect-[2/2] w-auto max-h-[70%] max-w-[80%] object-contain drop-shadow-[10px_10px_0px_rgba(0,0,0,0.2)] hover:scale-105 transition-transform duration-500"
                 />

@@ -75,7 +75,7 @@ export const Navigation: React.FC<NavigationProps> = ({ activeCategory, onSelect
                   {/* <h1 className="font-display text-3xl md:text-4xl font-bold tracking-tighter hover:opacity-80 transition-opacity">
                     kitsch<span className="font-sans font-light">&</span>co<span className="text-neonPink">.</span>studio
                   </h1> */}
-                  <img src="Kitsch-no-bg.png" alt="Logo" className="w-80" />
+                  <img src="/Kitsch-no-bg.png" alt="Logo" className="w-80" />
                   <div className="absolute -bottom-1 left-0 w-full h-3 bg-neonGreen/50 -skew-x-12 hidden group-hover:block transition-all duration-300"></div>
             </div>
 
